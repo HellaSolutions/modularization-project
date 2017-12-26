@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-gen-2017 16.29.53 by Hibernate Tools 4.3.2-SNAPSHOT -->
+<hibernate-mapping>
+    <class name="it.inps.bricks.model.Servizio" table="tb_ywser_servizio_ct" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="YWSER_COD_SER_PK" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="tipoContratto" class="it.inps.bricks.model.TipoContratto" fetch="select">
+            <column name="YWSE_YWTCN_COD_TIPOCONT_PK" not-null="true" />
+        </many-to-one>
+        <property name="codice" type="string">
+            <column name="YWSER_COD_CODICE" length="45" not-null="true" unique="true" />
+        </property>
+        <property name="descrizione" type="string">
+            <column name="YWSER_DESCS_DESCRIZIONE" length="250" not-null="true" unique="true" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="YWSER_DATA_CREAZ" length="26" not-null="true" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="YWSER_DATA_UPDATE" length="26" not-null="true" />
+        </property>
+        <property name="user" type="string">
+            <column name="YWSER_COD_USER" length="45" />
+        </property>
+        <set name="attivitas" table="tb_ywatt_attivita_cl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="YWATT_YWSER_COD_SER_PK" not-null="true" />
+            </key>
+            <one-to-many class="it.inps.bricks.model.Attivita" />
+        </set>
+        <set name="tipoTasks" table="tb_ywtts_tipotask_ct" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="YWTTS_YWSER_COD_SER_PK" not-null="true" />
+            </key>
+            <one-to-many class="it.inps.bricks.model.TipoTask" />
+        </set>
+    </class>
+</hibernate-mapping>

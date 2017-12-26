@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-gen-2017 16.29.53 by Hibernate Tools 4.3.2-SNAPSHOT -->
+<hibernate-mapping>
+    <class name="it.inps.bricks.model.DocumentoView" table="taskperdocumentoview" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="idTask" />
+            <generator class="assigned" />
+        </id>
+        <property name="testo" type="string">
+            <column name="testo" not-null="true" />
+        </property>
+        <property name="codiceTipoTask" type="java.lang.Integer">
+            <column name="codiceTipoTask" not-null="true" />
+        </property>
+        <property name="descrizioneTipoTask" type="string">
+            <column name="descrizioneTipoTask" length="65535" not-null="true" />
+        </property>
+        <property name="codiceCapitolo" type="string">
+            <column name="codiceCapitolo" length="45" />
+        </property>
+        <property name="codiceServizio" type="java.lang.Integer">
+            <column name="codiceServizio" not-null="true" />
+        </property>
+        <property name="codiceAttivita" type="java.lang.Integer">
+            <column name="codiceAttivita" not-null="true" />
+        </property>
+        <property name="numeroAttachment" type="long">
+            <column name="numeroAttachment" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

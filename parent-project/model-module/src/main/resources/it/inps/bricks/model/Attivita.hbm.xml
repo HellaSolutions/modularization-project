@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-gen-2017 16.29.53 by Hibernate Tools 4.3.2-SNAPSHOT -->
+<hibernate-mapping>
+    <class name="it.inps.bricks.model.Attivita" table="tb_ywatt_attivita_cl" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="YWATT_COD_ATTIVITA_PK" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="avanzamento" class="it.inps.bricks.model.Avanzamento" fetch="select">
+            <column name="YWATT_YWAVA_COD_AVA_PK" />
+        </many-to-one>
+        <many-to-one name="servizio" class="it.inps.bricks.model.Servizio" fetch="select">
+            <column name="YWATT_YWSER_COD_SER_PK" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoContratto" class="it.inps.bricks.model.TipoContratto" fetch="select">
+            <column name="YWATT_YWTCN_COD_TIPOCONT_PK" not-null="true" />
+        </many-to-one>
+        <property name="coge" type="string">
+            <column name="YWATT_COD_WBSCOGE" length="12" />
+        </property>
+        <property name="codiceIntevento" type="string">
+            <column name="YWATT_COD_INTERVENTO" length="25" />
+        </property>
+        <property name="ywattDescsAreacontr" type="string">
+            <column name="YWATT_DESCS_AREACONTR" length="45" />
+        </property>
+        <property name="ywattDescsAreaapp" type="string">
+            <column name="YWATT_DESCS_AREAAPP" length="45" />
+        </property>
+        <property name="ywattDescsAreainps" type="string">
+            <column name="YWATT_DESCS_AREAINPS" length="45" />
+        </property>
+        <property name="ywattDenomAmbapp" type="string">
+            <column name="YWATT_DENOM_AMBAPP" />
+        </property>
+        <property name="ywattCodDirezione" type="string">
+            <column name="YWATT_COD_DIREZIONE" length="5" />
+        </property>
+        <property name="ywattDenomLineaint" type="string">
+            <column name="YWATT_DENOM_LINEAINT" length="25" />
+        </property>
+        <property name="ywattDescsAmbfunz" type="string">
+            <column name="YWATT_DESCS_AMBFUNZ" />
+        </property>
+        <property name="ywattCodPianoforn" type="string">
+            <column name="YWATT_COD_PIANOFORN" length="12" />
+        </property>
+        <property name="codiceGeco" type="string">
+            <column name="YWATT_COD_GECOSSU" length="25" />
+        </property>
+        <property name="nomeScheda" type="string">
+            <column name="YWATT_DESCS_NMSCHEDA" />
+        </property>
+        <property name="ywattDescrProgetto" type="string">
+            <column name="YWATT_DESCR_PROGETTO" length="4000" />
+        </property>
+        <property name="ywattDenomRespinps" type="string">
+            <column name="YWATT_DENOM_RESPINPS" length="25" />
+        </property>
+        <property name="ywattDenomRefinps" type="string">
+            <column name="YWATT_DENOM_REFINPS" length="25" />
+        </property>
+        <property name="ywattDescsServizio" type="string">
+            <column name="YWATT_DESCS_SERVIZIO" length="45" />
+        </property>
+        <property name="ywattDenomTipserv" type="string">
+            <column name="YWATT_DENOM_TIPSERV" length="45" />
+        </property>
+        <property name="ywattDenomCapprg" type="string">
+            <column name="YWATT_DENOM_CAPPRG" length="25" />
+        </property>
+        <property name="ywattDenomCapprgrif" type="string">
+            <column name="YWATT_DENOM_CAPPRGRIF" length="25" />
+        </property>
+        <property name="ywattCodStatolav" type="string">
+            <column name="YWATT_COD_STATOLAV" length="25" />
+        </property>
+        <property name="ywattDataApertssu" type="timestamp">
+            <column name="YWATT_DATA_APERTSSU" length="26" />
+        </property>
+        <property name="ywattDataChiusssu" type="timestamp">
+            <column name="YWATT_DATA_CHIUSSSU" length="26" />
+        </property>
+        <property name="ywattDataRipianwbs" type="string">
+            <column name="YWATT_DATA_RIPIANWBS" />
+        </property>
+        <property name="ywattNumSemattivaz" type="string">
+            <column name="YWATT_NUM_SEMATTIVAZ" />
+        </property>
+        <property name="ywattDataConsrqpian" type="timestamp">
+            <column name="YWATT_DATA_CONSRQPIAN" length="26" />
+        </property>
+        <property name="ywattDataConsrqeff" type="timestamp">
+            <column name="YWATT_DATA_CONSRQEFF" length="26" />
+        </property>
+        <property name="ywattDataCollpian" type="timestamp">
+            <column name="YWATT_DATA_COLLPIAN" length="26" />
+        </property>
+        <property name="ywattDataColleff" type="timestamp">
+            <column name="YWATT_DATA_COLLEFF" length="26" />
+        </property>
+        <property name="ywattDataInizcoll" type="timestamp">
+            <column name="YWATT_DATA_INIZCOLL" length="26" />
+        </property>
+        <property name="ywattDataFinecoll" type="timestamp">
+            <column name="YWATT_DATA_FINECOLL" length="26" />
+        </property>
+        <property name="ywattDataAvveseeff" type="timestamp">
+            <column name="YWATT_DATA_AVVESEEFF" length="26" />
+        </property>
+        <property name="ywattCodTipoint" type="string">
+            <column name="YWATT_COD_TIPOINT" length="5" />
+        </property>
+        <property name="ywattNoteTecniche" type="string">
+            <column name="YWATT_NOTE_TECNICHE" />
+        </property>
+        <property name="ywattNoteGenerali" type="string">
+            <column name="YWATT_NOTE_GENERALI" />
+        </property>
+        <property name="ywattDescrScadist" type="string">
+            <column name="YWATT_DESCR_SCADIST" />
+        </property>
+        <property name="ywattNumId" type="string">
+            <column name="YWATT_NUM_ID" />
+        </property>
+        <property name="ywattNumPriorita" type="string">
+            <column name="YWATT_NUM_PRIORITA" />
+        </property>
+        <property name="ywattDescsMacroatt" type="string">
+            <column name="YWATT_DESCS_MACROATT" length="25" />
+        </property>
+        <property name="ywattDescsPrescoge" type="java.lang.Boolean">
+            <column name="YWATT_DESCS_PRESCOGE" />
+        </property>
+        <property name="ywattDataSal" type="string">
+            <column name="YWATT_DATA_SAL" length="12" />
+        </property>
+        <property name="ywattImpConsuntivo" type="string">
+            <column name="YWATT_IMP_CONSUNTIVO" length="12" />
+        </property>
+        <property name="ywattPercFasecons" type="java.lang.Integer">
+            <column name="YWATT_PERC_FASECONS" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="YWATT_DATA_CREAZ" length="26" not-null="true" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="YWATT_DATA_UPDATE" length="26" not-null="true" />
+        </property>
+        <property name="user" type="string">
+            <column name="YWATT_COD_USER" length="45" />
+        </property>
+        <set name="tasks" table="tb_ywtsk_task_cl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="YWTSK_YWATT_COD_ATTIVITA_PK" not-null="true" />
+            </key>
+            <one-to-many class="it.inps.bricks.model.Task" />
+        </set>
+        <set name="valoreEconomicos" table="tb_ywvec_valeco_cl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="YWVEC_YWATT_COD_ATTIVITA_PK" not-null="true" />
+            </key>
+            <one-to-many class="it.inps.bricks.model.ValoreEconomico" />
+        </set>
+    </class>
+</hibernate-mapping>

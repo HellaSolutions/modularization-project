@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-gen-2017 16.29.53 by Hibernate Tools 4.3.2-SNAPSHOT -->
+<hibernate-mapping>
+    <class name="it.inps.bricks.model.ValoreEconomico" table="tb_ywvec_valeco_cl" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="YWVEC_COD_VALECO_PK" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="attivita" class="it.inps.bricks.model.Attivita" fetch="select">
+            <column name="YWVEC_YWATT_COD_ATTIVITA_PK" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoValoreEconomico" class="it.inps.bricks.model.TipoValoreEconomico" fetch="select">
+            <column name="YWVEC_YWTVE_COD_TIPOVALECO_PK" not-null="true" />
+        </many-to-one>
+        <property name="fte" type="java.lang.Integer">
+            <column name="YWVEC_NUM_FTE" not-null="true" />
+        </property>
+        <property name="fpe" type="string">
+            <column name="YWVEC_NUM_FPE" />
+        </property>
+        <property name="add" type="java.lang.Integer">
+            <column name="YWVEC_NUM_FPADD" />
+        </property>
+        <property name="chg" type="java.lang.Integer">
+            <column name="YWVEC_NUM_FPCHG" />
+        </property>
+        <property name="del" type="string">
+            <column name="YWVEC_NUM_FPDEL" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="YWVEC_DATA_CREAZ" length="26" not-null="true" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="YWVEC_DATA_UPDATE" length="26" not-null="true" />
+        </property>
+        <property name="user" type="string">
+            <column name="YWVEC_COD_USER" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

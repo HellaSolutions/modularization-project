@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering 
+  SYSTEM "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+	
+	<type-mapping>
+		<sql-type jdbc-type="INTEGER" hibernate-type="java.lang.Integer" not-null="true">
+		</sql-type>
+	</type-mapping>
+	<table name="tb_ywtts_tipotask_ct" class="it.inps.bricks.model.TipoTask">
+		<primary-key>
+			<key-column name="YWTTS_COD_TIPOTASK_PK" property="id" />
+		</primary-key>
+		<column name="YWTTS_COD_CODICE" property="codice" />
+		<column name="YWTTS_DESCS_DESCRIZIONE" property="descrizione" />
+		<column name="YWTTS_COD_CAPITOLO" property="capitolo" />
+		<column name="YWTTS_YWSER_COD_SER_PK" property="servizio" />
+		<column name="YWTTS_DATA_CREAZ" property="created" />
+		<column name="YWTTS_DATA_UPDATE" property="updated" />
+		<column name="YWTTS_COD_USER" property="user" />
+	</table>
+	<table name="tb_ywava_avanzamento_ct" class="it.inps.bricks.model.Avanzamento">
+		<primary-key>
+			<key-column name="YWAVA_COD_AVA_PK" property="id" />
+		</primary-key>
+		<column name="YWAVA_DESCS_GECO" property="descrizioneGeco" />
+		<column name="YVAVA_DESCS_ALMAVIVA" property="descrizioneAlmaviva" />
+		<column name="YVAVA_DESCS_DEFAULT" property="descrizione" />
+		<column name="YVAVA_DATA_CREAZ" property="created" />
+		<column name="YVAVA_DATA_UPDATE" property="updated" />
+		<column name="YVAVA_COD_USER" property="user" />
+	</table>
+	
+	<table name="taskperdocumentoview" class="it.inps.bricks.model.DocumentoView">
+		<primary-key>
+			<key-column name="idTask" property="id" />
+		</primary-key>
+		<column name="testo" property="testo" />
+		<column name="codiceTipoTask" property="codiceTipoTask" />
+		<column name="descrizioneTipoTask" property="descrizioneTipoTask" />
+		<column name="codiceCapitolo" property="codiceCapitolo" />
+		<column name="codiceServizio" property="codiceServizio" />
+		<column name="numeroAttachment" property="numeroAttachment" />
+		<column name="codiceAttivita" property="codiceAttivita" />
+	</table>
+	<table name="tb_ywvec_valeco_cl" class="it.inps.bricks.model.ValoreEconomico">
+		<primary-key>
+			<key-column name="YWVEC_COD_VALECO_PK" property="id" />
+		</primary-key>
+		<column name="YWVEC_NUM_FTE" property="fte" />
+		<column name="YWVEC_NUM_FPE" property="fpe" />
+		<column name="YWVEC_NUM_FPADD" property="add" />
+		<column name="YWVEC_NUM_FPDEL" property="del" />
+		<column name="YWVEC_NUM_FPCHG" property="chg" />
+		<column name="YWVEC_YWATT_COD_ATTIVITA_PK" property="attivita" />
+		<column name="YWVEC_YWTVE_COD_TIPOVALECO_PK" property="tipoValoreEconomico" />
+		<column name="YWVEC_DATA_CREAZ" property="created" />
+		<column name="YWVEC_DATA_UPDATE" property="updated" />
+		<column name="YWVEC_COD_USER" property="user" />
+	</table>
+	<table name="tb_ywatt_attivita_cl" class="it.inps.bricks.model.Attivita">
+		<primary-key>
+			<key-column name="YWATT_COD_ATTIVITA_PK" property="id" />
+		</primary-key>
+		<column name="YWATT_COD_WBSCOGE" property="coge" />
+		<column name="YWATT_COD_INTERVENTO" property="codiceIntevento" />
+		<column name="YWATT_COD_GECOSSU" property="codiceGeco" />
+		<column name="YWATT_DESCS_NMSCHEDA" property="nomeScheda" />
+		<column name="YWATT_YWSER_COD_SER_PK" property="servizio" />
+		<column name="YWATT_YWAVA_COD_AVA_PK" property="statoAvanzamento" />
+		<column name="YWATT_DATA_CREAZ" property="created" />
+		<column name="YWATT_DATA_UPDATE" property="updated" />
+		<column name="YWATT_COD_USER" property="user" />
+	</table>
+	<table name="tb_ywatc_attachment_cl" class="it.inps.bricks.model.Attachment">
+		<primary-key>
+			<key-column name="YWATC_COD_ATTACHMENT_PK" property="id" />
+		</primary-key>
+		<column name="YVATC_DESCS_NOME" property="nome" />
+		<column name="YWATC_BLOB_DATA" property="bytes" />
+		<column name="YWATC_YWTSK_COD_TASK_PK" property="task" />
+		<column name="YWATC_COD_MIME" property="mimeType" />
+		<column name="YWATC_DATA_CREAZ" property="created" />
+		<column name="YWATC_DATA_UPDATE" property="updated" />
+		<column name="YWATC_COD_USER" property="user" />
+	</table>
+	<table name="tb_ywser_servizio_ct" class="it.inps.bricks.model.Servizio">
+		<primary-key>
+			<key-column name="YWSER_COD_SER_PK" property="id" />
+		</primary-key>
+		<column name="YWSER_COD_CODICE" property="codice" />
+		<column name="YWSER_DESCS_DESCRIZIONE" property="descrizione" />
+		<column name="YWSER_DATA_CREAZ" property="created" />
+		<column name="YWSER_DATA_UPDATE" property="updated" />
+		<column name="YWSER_COD_USER" property="user" />
+	</table>
+	<table name="tb_ywtsk_task_cl" class="it.inps.bricks.model.Task">
+		<primary-key>
+			<key-column name="YWTSK_COD_TASK_PK" property="id" />
+		</primary-key>
+		<column name="YWTSK_NOTE_NOTA" property="nota" />
+		<column name="YWTSK_YWTTS_COD_TIPOTASK_PK" property="tipoTask" />
+		<column name="YWTSK_YWATT_COD_ATTIVITA_PK" property="attivita" />
+		<column name="YWTSK_NUM_EFFORT" property="effort" />
+		<column name="YWTSK_DATA_CREAZ" property="created" />
+		<column name="YWTSK_DATA_UPDATE" property="updated" />
+		<column name="YWTSK_COD_USER" property="user" />
+	</table>
+	<table name="tb_ywtcn_tipocont_ct" class="it.inps.bricks.model.TipoContratto">
+		<primary-key>
+			<key-column name="YWTCN_COD_TIPOCONT_PK" property="id" />
+		</primary-key>
+		<column name="YWTCN_COD_CODICE" property="codice" />
+		<column name="YWTCN_DESCS_DESCRIZIONE" property="descrizione" />
+		<column name="YWTCN_DATA_CREAZ" property="created" />
+		<column name="YWTCN_DATA_UPDATE" property="updated" />
+		<column name="YWTCN_COD_USER" property="user" />
+	</table>
+	<table name="tb_ywtve_tipovaleco_ct" class="it.inps.bricks.model.TipoValoreEconomico">
+		<primary-key>
+			<key-column name="YWTVE_COD_TIPOVALECO_PK" property="id" />
+		</primary-key>
+		<column name="YWTVE_COD_CODICE" property="codice" />
+		<column name="YWTVE_DESC_DESCRIZIONE" property="descrizione" />
+		<column name="YWTVE_DATA_CREAZ" property="created" />
+		<column name="YWTVE_DATA_UPDATE" property="updated" />
+		<column name="YWTVE_COD_USER" property="user" />
+	</table>
+	<table name="attivitaview" class="it.inps.bricks.model.AttivitaView">
+		<primary-key>
+			<key-column name="idAttivita" property="id" />
+		</primary-key>
+		<column name="codiceTipoContratto" property="codiceTipoContratto" />
+		<column name="codiceServizio" property="codiceServizio" />
+		<column name="identificativoIntervento" property="codiceIntervento" />
+		<column name="codiceGecoSSU" property="codiceGecoSSU" />
+		<column name="nomeScheda" property="nomeScheda" />
+		<column name="numeroTask" property="numeroTask" />
+		<column name="totalEffort" property="totalEffort" />
+	</table>
+	
+	<table name="tb_ywttg_taskthastag_cl" class="it.inps.bricks.model.TaskHasTag">
+		<primary-key>
+			<key-column name="YWTTG_YWTAG_COD_TAG_PK" property="idTag" />
+			<key-column name="YWTTG_YWTTS_COD_TIPOTASK_PK" property="idTaskType" />
+		</primary-key>
+	</table>
+	<table name="tb_ywtag_tag_ct" class="it.inps.bricks.model.Tag">
+		<primary-key>
+			<key-column name="YWTAG_COD_TAG_PK" property="id" />
+		</primary-key>
+		<column name="YWTAG_DESCS_TAG" property="value" />
+	</table>	
+	
+</hibernate-reverse-engineering>

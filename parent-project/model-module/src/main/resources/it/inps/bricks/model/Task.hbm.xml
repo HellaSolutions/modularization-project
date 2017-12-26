@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-gen-2017 16.29.53 by Hibernate Tools 4.3.2-SNAPSHOT -->
+<hibernate-mapping>
+    <class name="it.inps.bricks.model.Task" table="tb_ywtsk_task_cl" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="YWTSK_COD_TASK_PK" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="attivita" class="it.inps.bricks.model.Attivita" fetch="select">
+            <column name="YWTSK_YWATT_COD_ATTIVITA_PK" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoTask" class="it.inps.bricks.model.TipoTask" fetch="select">
+            <column name="YWTSK_YWTTS_COD_TIPOTASK_PK" not-null="true" />
+        </many-to-one>
+        <property name="nota" type="string">
+            <column name="YWTSK_NOTE_NOTA" not-null="true" />
+        </property>
+        <property name="effort" type="java.lang.Integer">
+            <column name="YWTSK_NUM_EFFORT" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="YWTSK_DATA_CREAZ" length="26" not-null="true" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="YWTSK_DATA_UPDATE" length="26" not-null="true" />
+        </property>
+        <property name="user" type="string">
+            <column name="YWTSK_COD_USER" length="45" />
+        </property>
+        <set name="attachments" table="tb_ywatc_attachment_cl" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="YWATC_YWTSK_COD_TASK_PK" />
+            </key>
+            <one-to-many class="it.inps.bricks.model.Attachment" />
+        </set>
+    </class>
+</hibernate-mapping>

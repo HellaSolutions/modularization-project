@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-gen-2017 16.29.53 by Hibernate Tools 4.3.2-SNAPSHOT -->
+<hibernate-mapping>
+    <class name="it.inps.bricks.model.Attachment" table="tb_ywatc_attachment_cl" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="YWATC_COD_ATTACHMENT_PK" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="task" class="it.inps.bricks.model.Task" fetch="select">
+            <column name="YWATC_YWTSK_COD_TASK_PK" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="YVATC_DESCS_NOME" length="120" not-null="true" />
+        </property>
+        <property name="bytes" type="binary">
+            <column name="YWATC_BLOB_DATA" not-null="true" />
+        </property>
+        <property name="mimeType" type="string">
+            <column name="YWATC_COD_MIME" length="150" not-null="true" />
+        </property>
+        <property name="created" type="timestamp">
+            <column name="YWATC_DATA_CREAZ" length="26" not-null="true" />
+        </property>
+        <property name="updated" type="timestamp">
+            <column name="YWATC_DATA_UPDATE" length="26" not-null="true" />
+        </property>
+        <property name="user" type="string">
+            <column name="YWATC_COD_USER" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>
